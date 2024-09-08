@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auth-service
+    username: akshat
+    password: password
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      hbm2ddl:
+        auto: update
+
+#  kafka:
+#    producer:
+#      bootstrap-servers: ${KAFKA_HOST:localhost}:${KAFKA_PORT:9092}
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      properties:
+#        spring:
+#          json:
+#            type:
+#              mapping:
+#                auth: authservice.model.UserInfoEvent
+#    topic-json:
+#      name: user_service
+
+server:
+  port: 9010
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    your.package.name: DEBUG
+
+security:
+  basic:
+    enable: false
+  ignored: /**
