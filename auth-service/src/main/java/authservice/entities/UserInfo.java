@@ -37,7 +37,7 @@ public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Long userId;
+    private String userId;
 
     private String username;
     private String password;
@@ -49,31 +49,4 @@ public class UserInfo {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<UserRole> roles;
-
-    /**
-     * Get the username of the user.
-     *
-     * @return the username of the user
-     */
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * Get the password of the user.
-     *
-     * @return the password of the user
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Get the roles associated with the user.
-     *
-     * @return a set of roles for the user
-     */
-    public Set<UserRole> getRoles() {
-        return roles;
-    }
 }
