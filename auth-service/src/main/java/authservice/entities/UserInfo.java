@@ -1,5 +1,6 @@
 package authservice.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,18 +13,17 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
+import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Entity representing a user in the system.
- * Lombok annotations are used to generate setters, constructors, and other methods.
- * Explicit getter methods are provided for specific fields.
- */
 @Entity
 @Getter
 @Setter
@@ -35,11 +35,11 @@ import java.util.Set;
 public class UserInfo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private String userId;
 
     private String username;
+
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -48,5 +48,7 @@ public class UserInfo {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<UserRole> roles;
+
+    private Set<UserRole> roles = new HashSet<>();
+
 }

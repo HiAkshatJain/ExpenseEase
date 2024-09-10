@@ -42,10 +42,11 @@ public class AuthController {
      * @param userInfoDto Data transfer object containing user information
      * @return ResponseEntity containing JWT token, refresh token, and user ID if successful, or an error message if not
      */
-    @PostMapping("/auth/v1/signup")
+    @PostMapping("/api/v1/auth/signup")
     public ResponseEntity<?> SignUp(@RequestBody UserInfoDto userInfoDto){
         try {
-            // Attempt to sign up the user and obtain the user ID
+
+//          Attempt to sign up the user and obtain the user ID
             String userId = userDetailsService.signupUser(userInfoDto);
 
             // If userId is null, the user already exists
@@ -65,6 +66,8 @@ public class AuthController {
                     .token(refreshToken.getToken())
                     .userId(userId)
                     .build(), HttpStatus.OK);
+
+
         } catch (Exception ex) {
             // Handle any exceptions that occur during user signup
             return new ResponseEntity<>("Exception in User Service", HttpStatus.INTERNAL_SERVER_ERROR);
@@ -76,7 +79,7 @@ public class AuthController {
      *
      * @return ResponseEntity containing the user ID if authenticated, or an unauthorized status if not
      */
-    @GetMapping("/auth/v1/ping")
+    @GetMapping("/api/v1/auth/ping")
     public ResponseEntity<String> ping(){
         // Retrieve the current authentication object from the security context
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

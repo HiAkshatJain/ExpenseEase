@@ -24,9 +24,4 @@ public class UserRole {
         this.name = name;
     }
 
-    // Getter for name
-    public String getName() {
-        return name;
-    }
-
 }
