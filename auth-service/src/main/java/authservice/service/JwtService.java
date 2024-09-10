@@ -100,7 +100,7 @@ public class JwtService {
      * @param username the username for which the token is generated
      * @return the generated JWT token
      */
-    public String generateToken(String username) {
+    public String GenerateToken(String username) {
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, username);
     }

@@ -16,18 +16,18 @@ spring:
       hbm2ddl:
         auto: update
 
-#  kafka:
-#    producer:
-#      bootstrap-servers: ${KAFKA_HOST:localhost}:${KAFKA_PORT:9092}
-#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      properties:
-#        spring:
-#          json:
-#            type:
-#              mapping:
-#                auth: authservice.model.UserInfoEvent
-#    topic-json:
-#      name: user_service
+  kafka:
+    producer:
+      bootstrap-servers: ${KAFKA_HOST:localhost}:${KAFKA_PORT:9092}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        spring:
+          json:
+            type:
+              mapping:
+                auth: authservice.model.UserInfoEvent
+    topic-json:
+      name: user_service
 
 server:
   port: 9010
