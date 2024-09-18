@@ -33,14 +33,13 @@ spring:
       name: expense_service
 
 server:
-  port: 8080
+  port: 9820
 
 logging:
   level:
     org:
       hibernate: DEBUG
       springframework: DEBUG
-
 
 security:
   basic:

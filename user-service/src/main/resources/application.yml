@@ -32,14 +32,13 @@ spring:
       name: user_service
 
 server:
-  port: 8080
+  port: 9810
 
 logging:
   level:
     org:
       hibernate: DEBUG
       springframework: DEBUG
-
 
 security:
   basic:

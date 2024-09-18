@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir ds-service-1.0.tar.gz
 ENV FLASK_APP=src/app/__init__.py
 
 # Expose the port
-EXPOSE 5000
+EXPOSE 8010
 
 # Start the Flask app
 CMD ["flask", "run", "--host=0.0.0.0", "--port=8010"]

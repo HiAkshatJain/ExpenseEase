@@ -54,4 +54,4 @@ def handle_health():
 
 # Run the Flask application if this script is executed directly
 if __name__ == "__main__":
-    app.run(host='localhost', port=5000, debug=True)
+    app.run(host='localhost', port=8010, debug=True)
